@@ -51,6 +51,11 @@ footer{text-align:center;color:var(--mute);font-size:13px;margin:10px 0 24px}
 @keyframes drift{0%,100%{transform:translate(0,0)}50%{transform:translate(14px,10px)}}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(26,157,82,.5)}60%{box-shadow:0 0 0 12px rgba(26,157,82,0)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+.fab{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:linear-gradient(to top,var(--bg) 60%,transparent);pointer-events:none}
+.fab a{pointer-events:auto;display:flex;align-items:center;justify-content:center;gap:10px;max-width:520px;margin:0 auto;padding:15px;border-radius:18px;text-decoration:none;color:#fff;font-weight:800;font-size:19px;background:linear-gradient(135deg,var(--t),#0b5f73);box-shadow:0 10px 26px rgba(10,127,149,.45);animation:fpulse 2.6s infinite;transition:transform .15s}
+.fab a:active{transform:scale(.96)}
+@keyframes fpulse{0%,100%{box-shadow:0 10px 26px rgba(10,127,149,.45)}50%{box-shadow:0 10px 34px rgba(10,127,149,.8)}}
+body{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))}
 </style>
 </head>
 <body>
@@ -79,6 +84,7 @@ footer{text-align:center;color:var(--mute);font-size:13px;margin:10px 0 24px}
 <p class="small" style="text-align:center">احفظ أرقام العيادة والدكاترة في موبايلك بضغطة واحدة.</p></div>
 <footer>عيادة د. إيهاب أحمد لطب الأسنان 🤍</footer>
 </main>
+<div class="fab"><a href="tel:+201286034152">📞 اتصل للحجز</a></div>
 <script>
 var MSG="السلام عليكم، حابب أحجز موعد في العيادة.";
 [].forEach.call(document.querySelectorAll("[data-wa]"),function(a){a.href="https://wa.me/"+a.dataset.wa+"?text="+encodeURIComponent(MSG);a.target="_blank";a.rel="noopener"});
